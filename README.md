@@ -117,7 +117,7 @@ collaborative-canvas/
 │   ├── server.js
 │   └── package.json
 ├── README.md
-└── ARCHITECTURE.md ```
+└── ARCHITECTURE.md```
 
 ### 📌 Notes
 
