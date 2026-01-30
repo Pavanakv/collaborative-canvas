@@ -67,7 +67,7 @@ npm install
 npm start
 
 
-Frontend
+### Frontend
 cd client/vite-project
 npm install
 npm run dev
@@ -75,7 +75,7 @@ npm run dev
 
 Open http://localhost:5173 in two browsers and start drawing.
 
-🌐 How to Test the Live Version
+## 🌐 How to Test the Live Version
 
 Open the live frontend URL in two different browsers
 
@@ -91,7 +91,7 @@ Ctrl + Z → Undo
 
 Ctrl + Y → Redo
 
-⚠️ Known Limitations
+## ⚠️ Known Limitations
 
 Undo/redo is stroke-based and may exhibit edge cases during heavy concurrent usage
 
@@ -102,7 +102,7 @@ Cursor indicators are basic and can be enhanced with user-specific colors
 No authentication is implemented (not required for this assignment)
 
 
-📂 Project Structure
+## 📂 Project Structure
 collaborative-canvas/
 ├── client/
 │   └── vite-project/
@@ -116,7 +116,7 @@ collaborative-canvas/
 ├── README.md
 └── ARCHITECTURE.md
 
-📌 Notes
+## 📌 Notes
 
 This project focuses on:
 
@@ -131,6 +131,6 @@ Global state management for shared drawing history
 The goal was to prioritize correctness, clarity, and system design over
 over-engineering.
 
-🙌 Author
+## 🙌 Author
 
 Pavana K.V
