@@ -103,13 +103,10 @@ Drawing state is stored in memory and resets when the server restarts
 
 Cursor indicators are basic and can be enhanced with user-specific colors
 
-No authentication is implemented (not required for this assignment)```
+No authentication is implemented (not required for this assignment)
+```
 
-## 📂 Project Structure
-
-
-
-
+### 📂 Project Structure
 
 collaborative-canvas/
 ├── client/
