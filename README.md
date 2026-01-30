@@ -107,6 +107,10 @@ No authentication is implemented (not required for this assignment)```
 
 ## 📂 Project Structure
 
+
+
+
+
 collaborative-canvas/
 ├── client/
 │ └── vite-project/
