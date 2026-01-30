@@ -25,7 +25,7 @@ to test real-time collaboration.
 - **Backend:** Node.js, Socket.io
 - **Real-Time Communication:** WebSockets
 - **Deployment:**
-  - Frontend → Vercel / Netlify
+  - Frontend → Vercel
   - Backend → Render
 
 ---
