@@ -35,12 +35,11 @@ export default function App() {
 
       <div className="main-layout">
 
-  {/* ✅ CANVAS FIRST */}
   <div className="canvas-container">
     <Canvas tool={tool} color={color} width={width} />
   </div>
 
-  {/* ✅ USERS PANEL SECOND */}
+
   <div className="users-panel">
     <h3>👥 Online Users ({users.length})</h3>
 

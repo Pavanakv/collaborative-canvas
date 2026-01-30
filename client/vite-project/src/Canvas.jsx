@@ -7,8 +7,8 @@ export default function Canvas({ tool, color, width }) {
   const cursorsRef = useRef({});
 
 
-  const strokesRef = useRef([]);        // committed strokes
-  const previewRef = useRef(null);      // current drawing stroke
+  const strokesRef = useRef([]);        
+  const previewRef = useRef(null);      
   const drawingRef = useRef(false);
 
   /* ================== SOCKET SETUP ================== */
@@ -105,10 +105,10 @@ socket.on("cursor:remove", (id) => {
 
   drawingRef.current = false;
 
-  // ✅ COMMIT LOCALLY
+  //  COMMIT LOCALLY
   strokesRef.current.push(previewRef.current);
 
-  // ✅ COMMIT TO SERVER
+  //  COMMIT TO SERVER
   socket.emit("stroke:start", previewRef.current);
 
   previewRef.current = null;
