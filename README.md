@@ -65,7 +65,7 @@ A detailed explanation is available in **ARCHITECTURE.md**.
 cd server
 npm install
 npm start
-
+```
 
 ### Frontend
 
@@ -76,8 +76,9 @@ npm run dev
 
 
 Open http://localhost:5173 in two browsers and start drawing.
+```
 
-🌐 How to Test the Live Version
+### 🌐 How to Test the Live Version
 
 Open the live frontend URL in two different browsers
 
@@ -93,7 +94,8 @@ Ctrl + Z → Undo
 
 Ctrl + Y → Redo
 
-⚠️ Known Limitations
+
+### ⚠️ Known Limitations
 
 Undo/redo is stroke-based and may exhibit edge cases during heavy concurrent usage
 
@@ -101,10 +103,9 @@ Drawing state is stored in memory and resets when the server restarts
 
 Cursor indicators are basic and can be enhanced with user-specific colors
 
-No authentication is implemented (not required for this assignment)
+No authentication is implemented (not required for this assignment)```
 
-
-📂 Project Structure
+### 📂 Project Structure
 collaborative-canvas/
 ├── client/
 │   └── vite-project/
@@ -116,9 +117,9 @@ collaborative-canvas/
 │   ├── server.js
 │   └── package.json
 ├── README.md
-└── ARCHITECTURE.md
+└── ARCHITECTURE.md ```
 
-📌 Notes
+### 📌 Notes
 
 This project focuses on:
 
@@ -131,8 +132,8 @@ WebSocket-based event synchronization
 Global state management for shared drawing history
 
 The goal was to prioritize correctness, clarity, and system design over
-over-engineering.
+over-engineering.```
 
-🙌 Author
+### 🙌 Author
 
 Pavana K.V
