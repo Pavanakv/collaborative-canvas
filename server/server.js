@@ -9,50 +9,48 @@ const io = new Server(server, {
 });
 
 /* ===============================
-   GLOBAL SHARED STATE (IMPORTANT)
+   GLOBAL STATE
    =============================== */
-const strokes = [];      // committed strokes
-const redoStack = [];    // undone strokes
-const users = {};        // connected users
+const strokes = [];
+const redoStack = [];
+const users = {};
 
 /* ===============================
-   SOCKET CONNECTION
+   SOCKET HANDLING
    =============================== */
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
 
-  /* ---- USER MANAGEMENT ---- */
   users[socket.id] = true;
   io.emit("users", Object.keys(users));
 
-  // send full history to new user
   socket.emit("history", strokes);
 
-  /* ---- DRAWING EVENTS ---- */
+  // DRAWING
+  socket.on("stroke:start", (stroke) => {
+    strokes.push(stroke);
+    redoStack.length = 0;
+    socket.broadcast.emit("stroke:start", stroke);
+  });
+
   socket.on("stroke:move", (data) => {
     socket.broadcast.emit("stroke:move", data);
   });
 
- socket.on("stroke:start", stroke => {
-  strokes.push(stroke);
-  redoStack.length = 0;
-  io.emit("stroke:start", stroke);
-});
+  // UNDO / REDO
+  socket.on("undo", () => {
+    if (!strokes.length) return;
+    redoStack.push(strokes.pop());
+    io.emit("history", strokes);
+  });
 
-socket.on("undo", () => {
-  if (!strokes.length) return;
-  redoStack.push(strokes.pop());
-  io.emit("history", strokes);
-});
+  socket.on("redo", () => {
+    if (!redoStack.length) return;
+    strokes.push(redoStack.pop());
+    io.emit("history", strokes);
+  });
 
-socket.on("redo", () => {
-  if (!redoStack.length) return;
-  strokes.push(redoStack.pop());
-  io.emit("history", strokes);
-});
-
-
-  /* ---- CURSOR TRACKING ---- */
+  // CURSOR
   socket.on("cursor", (pos) => {
     socket.broadcast.emit("cursor", {
       id: socket.id,
@@ -60,25 +58,12 @@ socket.on("redo", () => {
     });
   });
 
-  /* ---- DISCONNECT ---- */
+  // DISCONNECT
   socket.on("disconnect", () => {
-    console.log("User disconnected:", socket.id);
-
     delete users[socket.id];
     io.emit("users", Object.keys(users));
     io.emit("cursor:remove", socket.id);
   });
-});
-
-socket.on("cursor", (pos) => {
-  socket.broadcast.emit("cursor", {
-    id: socket.id,
-    pos
-  });
-});
-
-socket.on("disconnect", () => {
-  io.emit("cursor:remove", socket.id);
 });
 
 /* ===============================
@@ -86,5 +71,5 @@ socket.on("disconnect", () => {
    =============================== */
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-  console.log("Server running on", PORT);
+  console.log("✅ Server running on port", PORT);
 });
