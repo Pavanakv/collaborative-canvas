@@ -11,7 +11,7 @@ synchronization.
 
 ## 🚀 Live Demo
 
-- **Frontend:** collaborative-canvas-git-main-pavana-k-vs-projects.vercel.app  
+- **Frontend:** https://collaborative-canvas-2ux557tbo-pavana-k-vs-projects.vercel.app/  
 - **Backend:** https://collaborative-canvas-3n2b.onrender.com
 
 > Open the frontend link in two different browsers or incognito windows
