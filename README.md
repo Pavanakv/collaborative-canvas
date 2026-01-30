@@ -109,14 +109,14 @@ No authentication is implemented (not required for this assignment)```
 
 collaborative-canvas/
 ├── client/
-│   └── vite-project/
-│       ├── src/
-│       ├── index.html
-│       ├── package.json
-│       └── vite.config.js
+│ └── vite-project/
+│ ├── src/
+│ ├── index.html
+│ ├── package.json
+│ └── vite.config.js
 ├── server/
-│   ├── server.js
-│   └── package.json
+│ ├── server.js
+│ └── package.json
 ├── README.md
 └── ARCHITECTURE.md```
 
